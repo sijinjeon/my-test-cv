@@ -14,6 +14,8 @@
         font-family: 'Inter', sans-serif;
         background-color: #fdfdfd;
         color: #1a1a1a;
+        margin: 0;
+        padding: 0;
       }
       .serif {
         font-family: 'Playfair Display', serif;
@@ -22,24 +24,33 @@
         border-radius: 50% / 40% 40% 60% 60%;
         overflow: hidden;
       }
-      @media (min-width: 768px) {
-        .vertical-text {
-          writing-mode: vertical-rl;
-          text-orientation: mixed;
-        }
+      /* Ensure root is visible */
+      #root {
+        min-height: 100vh;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .animate-fade-in {
+        animation: fadeIn 0.5s ease-out forwards;
       }
     </style>
-  <script type="importmap">
+    <script type="importmap">
 {
   "imports": {
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react": "https://esm.sh/react@^19.2.3",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+    "react": "https://esm.sh/react@19.0.0",
+    "react-dom": "https://esm.sh/react-dom@19.0.0",
+    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/"
   }
 }
 </script>
-</head>
+  </head>
   <body>
     <div id="root"></div>
+    <!-- 엔트리 포인트를 명시적으로 호출합니다 -->
+    <script type="module" src="./index.tsx"></script>
   </body>
 </html>
