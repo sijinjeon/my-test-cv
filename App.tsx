@@ -3,6 +3,9 @@ import React, { useState, useEffect } from 'react';
 import { CV_DATA } from './constants';
 import { Project } from './types';
 
+// Using the raw GitHub URL for the image
+const PROFILE_IMAGE = "https://raw.githubusercontent.com/sijinjeon/my-test-cv/8fa05a217fe4cae48547fc55bc5ce429935187ad/8_notion_face.png";
+
 const Navbar: React.FC = () => (
   <nav className="flex justify-between items-center py-8 px-6 md:px-12 max-w-7xl mx-auto border-b border-gray-100">
     <div className="flex gap-8 text-xs font-semibold tracking-widest text-gray-500 uppercase">
@@ -57,11 +60,11 @@ const Hero: React.FC = () => (
       </div>
 
       <div className="md:col-span-6 flex justify-center relative">
-        <div className="w-full max-w-sm aspect-[4/5] bg-gray-100 profile-frame relative shadow-2xl">
+        <div className="w-full max-w-sm aspect-[4/5] bg-white profile-frame relative shadow-2xl border border-gray-100 flex items-center justify-center overflow-hidden">
           <img 
-            src="https://picsum.photos/seed/sireal_profile/800/1000" 
-            alt="Sireal Profile" 
-            className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+            src={PROFILE_IMAGE} 
+            alt="Sireal Profile Illustration" 
+            className="w-full h-full object-contain p-8 transform hover:scale-105 transition-all duration-700"
           />
         </div>
         <div className="absolute top-1/2 -left-12 -translate-y-1/2 opacity-20 pointer-events-none hidden md:block">
